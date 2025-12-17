@@ -32,8 +32,6 @@ function itSaDraw(){
 }
 
 function updateResults(){
-    humanScore+=0.5;
-    computerScore+=0.5;
     document.querySelector(".results").textContent = "Computer: "+ computerScore +" x "+humanScore+ ": Human";
 
 }
