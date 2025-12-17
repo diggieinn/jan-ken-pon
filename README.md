@@ -1,2 +1,2 @@
 # jan-ken-pon
-Rock, Paper, Scissors game for TOP
+Simple no GUI Rock, Paper, Scissors  game for TOP
