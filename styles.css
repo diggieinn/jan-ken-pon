@@ -1,0 +1,88 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: linear-gradient(120deg,green, black);
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+}
+
+/*gane wrapper*/
+.game {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Result message */
+.ResultsMessage {
+    font-size: 1.2rem;
+    margin-bottom: 100px;
+    min-height: 30px;
+}
+
+/* Buttons container */
+#wrapper {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+button {
+  padding: 15px 25px;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: contain; /* fit image inside */
+  height:200px;
+  width: 200px;
+  border: none;
+  background-color: transparent; 
+  font-size: 0;
+}
+
+#rock{
+ background-image: url(stone.png);
+
+}
+#paper{
+ background-image: url(scroll.png);
+
+}
+#scissors{
+ background-image: url(scissors.png);
+
+}
+
+
+button:hover {
+    transform: scale(1.3);
+}
+
+
+
+/* Score display */
+.results {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+footer {
+    margin-top: auto;
+    text-align: center;
+    font-size: 0.9rem;
+    margin-bottom: 100px;
+}
+footer p {
+    margin: 5px 0;
+    opacity: 0.9;
+}

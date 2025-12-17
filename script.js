@@ -25,31 +25,39 @@ function getComputerChoice(){
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
-function getHumanChoice(){
 
-    let humanChoice = prompt("Rock, Paper or Scissors?")
+function itSaDraw(){
+      document.querySelector(".ResultsMessage").textContent =
+    "This is a draw!";
+}
 
-    return humanChoice;
+function updateResults(){
+    humanScore+=0.5;
+    computerScore+=0.5;
+    document.querySelector(".results").textContent = "Computer: "+ computerScore +" x "+humanScore+ ": Human";
 
 }
+
 function playRound(humanChoice, computerChoice){
+    
+
     humanChoice = humanChoice.toLowerCase();
     computerChoice = computerChoice.toLowerCase();
 
     if (humanChoice == computerChoice){
-        alert("It is a draw " + humanChoice + " draws against " + computerChoice)
+       itSaDraw();
         return;
     }
 
     if(humanChoice == "rock") {
         if(computerChoice == "scissors"){
             humanScore++;
-            alert("It is a win " + humanChoice + " wins against " + computerChoice);
+            document.querySelector(".ResultsMessage").textContent ="It is a win! " + humanChoice + " wins against " + computerChoice
             return;
         }
         else {
             computerScore++;
-             alert("You lose " + humanChoice + " loses against " + computerChoice);
+            document.querySelector(".ResultsMessage").textContent = "You lose! " + humanChoice + " loses against " + computerChoice;
             return;
         }
 
@@ -58,12 +66,12 @@ function playRound(humanChoice, computerChoice){
     if(humanChoice == "paper") {
           if(computerChoice == "rock"){
             humanScore++;
-             alert("It is a win " + humanChoice + " wins against " + computerChoice);
+             document.querySelector(".ResultsMessage").textContent ="It is a win! " + humanChoice + " wins against " + computerChoice;
             return;
         }
         else {
             computerScore++;
-             alert("You lose " + humanChoice + " loses against " + computerChoice);
+             document.querySelector(".ResultsMessage").textContent ="You lose! " + humanChoice + " loses against " + computerChoice;
             return;
         }
 
@@ -72,32 +80,43 @@ function playRound(humanChoice, computerChoice){
     if(humanChoice == "scissors") {
         if(computerChoice == "paper"){
             humanScore++;
-             alert("It is a win " + humanChoice + " wins against " + computerChoice);
+            document.querySelector(".ResultsMessage").textContent ="It is a win! " + humanChoice + " wins against " + computerChoice;
             return;
         }
         else {
             computerScore++;
-             alert("You lose " + humanChoice + " loses against " + computerChoice);
+            document.querySelector(".ResultsMessage").textContent ="You lose! " + humanChoice + " loses against " + computerChoice;
             return;
         }
 
     }
-     alert("You picked a invalid options, please make sure spelling is correct. Your choice was "+humanChoice)
+     document.querySelector(".ResultsMessage").textContent = "You picked a invalid options, please make sure spelling is correct. Your choice was "+humanChoice;
     return;
 
     
 }
-function playGame(){
-    playRound(getHumanChoice(), getComputerChoice())
-    alert("Your score: "+ humanScore + " " + "Computer Score: " +computerScore)
-    playRound(getHumanChoice(), getComputerChoice())
-    alert("Your score: "+ humanScore + " " + "Computer Score: " +computerScore)
-    playRound(getHumanChoice(), getComputerChoice())
-    alert("Your score: "+ humanScore + " " + "Computer Score: " +computerScore)
-    playRound(getHumanChoice(), getComputerChoice())
-    alert("Your score: "+ humanScore + " " + "Computer Score: " +computerScore)
-    playRound(getHumanChoice(), getComputerChoice())
-    alert("Final Result: "+ humanScore + " " + "Computer Score: " +computerScore)
-}
 
-playGame();
+    const rock = document.getElementById("rock")
+    const paper = document.getElementById("paper")
+    const scissors = document.getElementById("scissors")
+    let humanChoice = "";
+
+
+const wrapper = document.getElementById('wrapper');
+
+wrapper.addEventListener('click', (event) => {
+  const isButton = event.target.nodeName === 'BUTTON';
+  if (!isButton) {
+    return;
+  }
+
+  updateResults();
+})
+
+rock.addEventListener("click", () => playRound("rock", getComputerChoice()));
+paper.addEventListener("click", () => playRound("paper", getComputerChoice()));
+scissors.addEventListener("click", () => playRound("scissors", getComputerChoice()));
+
+
+
+
